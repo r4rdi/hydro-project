@@ -21,154 +21,145 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4 lg:p-8 relative overflow-hidden">
-      {/* Background Silhouette Gradients - Adjusted to match reference */}
-      <div className="absolute top-0 left-0 w-[1000px] h-[1000px] bg-brand-orange-start/15 rounded-full blur-[200px] pointer-events-none -translate-x-1/3 -translate-y-1/4" />
-      <div className="absolute bottom-0 right-0 w-[1000px] h-[1000px] bg-blue-600/15 rounded-full blur-[200px] pointer-events-none translate-x-1/3 translate-y-1/4" />
-
-      {/* Container - Glassmorphism Split Layout */}
-      <div className="w-full max-w-6xl min-h-[100dvh] md:min-h-[600px] md:h-[85vh] flex flex-col md:flex-row rounded-3xl overflow-hidden glass-panel relative z-10 bg-[#12141D]/60 border-white/5 backdrop-blur-2xl shadow-2xl">
-
-        {/* Left Side: Branding */}
-        <div className="hidden md:flex flex-col relative w-[45%] text-brand-text-primary p-12 items-center justify-center overflow-hidden border-r border-brand-border/50 bg-[#12141D]/40">
-          <div className="relative z-10 flex flex-col items-center text-center space-y-6 group cursor-default">
-            <div className="w-24 h-24 rounded-3xl bg-white/[0.02] backdrop-blur-3xl border border-white/10 shadow-2xl flex items-center justify-center p-4 transition-all duration-500 group-hover:scale-105 glow-purple">
-              <Image src="/logo.png" alt="Hydro Logo" width={64} height={64} className="object-contain transition-transform duration-500 group-hover:-rotate-3" />
-            </div>
-            <div className="space-y-4 max-w-xs">
-              <h1 className="text-3xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-brand-purple-primary">Dark Elegance & Precision</h1>
-              <p className="text-brand-text-secondary text-sm leading-relaxed">
-                Control your pH, EC, and climate in real-time. Boost your yield effortlessly with automated precision.
+    <div className="min-h-screen bg-[#F0F0F0] flex flex-col items-center justify-center p-4 lg:p-8 relative font-sans text-gray-900">
+      
+      {/* Main Card Container */}
+      <div className="w-full max-w-5xl bg-white rounded-[2rem] shadow-2xl p-3 flex flex-col md:flex-row relative z-10 min-h-[600px]">
+        
+        {/* Left Side: Illustration / Branding Panel */}
+        <div className="hidden md:flex flex-col w-1/2 bg-[#F6F6F6] rounded-[1.5rem] p-8 relative overflow-hidden items-center justify-between">
+          {/* Logo */}
+          <div className="absolute top-8 left-8 flex items-center gap-2">
+             <Image src="/logo.png" alt="Hydro Logo" width={24} height={24} className="object-contain" />
+             <span className="font-bold text-gray-800 tracking-tight">Hydro</span>
+          </div>
+          
+          {/* Onboarding Copy Area */}
+          <div className="flex-1 flex flex-col justify-center w-full mt-12 px-4">
+            <div className="space-y-6 max-w-sm">
+              <h2 className="text-3xl font-extrabold text-gray-900 leading-[1.15] tracking-tight">
+                Performa Andal di Cloud, <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-rose-500">Siap Panen Maksimal!</span> 
+              </h2>
+              
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Solusi terintegrasi tanpa rasa khawatir. Di-hosting dan di-deploy pada arsitektur cloud berkecepatan tinggi dengan uptime terjamin, <strong className="text-gray-900">Hydro</strong> memastikan data pertanian presisi Anda selalu aktif dan dapat diakses kapan saja.
               </p>
             </div>
           </div>
-          <div className="absolute bottom-8 left-8 text-xs text-brand-text-secondary hover:text-white transition-colors cursor-default">
-            &copy; 2026 Hydro Enterprise
+
+          {/* Supported By Section */}
+          <div className="w-full mt-auto pt-8 flex flex-col items-center gap-5">
+            <span className="text-[11px] font-bold text-gray-400 tracking-widest uppercase">Supported By</span>
+            <div className="flex items-center justify-center gap-5 flex-wrap opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+              <img src="https://cdn.simpleicons.org/arduino/00979D" alt="Arduino IDE" title="Arduino" className="h-6 object-contain hover:scale-110 transition-transform" />
+              <img src="https://cdn.simpleicons.org/typescript/3178C6" alt="TypeScript" title="TypeScript" className="h-6 object-contain hover:scale-110 transition-transform" />
+              <img src="https://cdn.simpleicons.org/cplusplus/00599C" alt="C++" title="C++" className="h-6 object-contain hover:scale-110 transition-transform" />
+              <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" className="h-6 object-contain hover:scale-110 transition-transform" />
+              <img src="https://cdn.simpleicons.org/supabase/3ECF8E" alt="Supabase" title="Supabase" className="h-6 object-contain hover:scale-110 transition-transform" />
+              <img src="https://cdn.simpleicons.org/vercel/000000" alt="Vercel" title="Vercel" className="h-5 object-contain hover:scale-110 transition-transform" />
+            </div>
           </div>
         </div>
 
-        {/* Right Side: Login Form */}
-        <div className="flex-1 flex flex-col p-8 sm:p-12 relative text-brand-text-primary bg-[#12141D]/60">
-          <div className="flex items-center justify-between mb-auto">
-            <div className="md:hidden flex items-center gap-2 group cursor-pointer">
-              <Image src="/logo.png" alt="Hydro Logo" width={32} height={32} className="transition-transform duration-300 group-hover:rotate-12" />
-              <span className="font-bold text-lg text-white">Hydro</span>
-            </div>
-            <div className="hidden md:block group cursor-pointer">
-              <Image src="/logo.png" alt="Hydro Logo" width={32} height={32} className="transition-transform duration-300 group-hover:rotate-12" />
-            </div>
-            <div className="text-sm font-medium text-brand-text-secondary">
-              Don't have an account? <span className="text-brand-purple-primary underline decoration-brand-purple-primary/30 underline-offset-4 cursor-pointer hover:text-brand-orange-start hover:decoration-brand-orange-start transition-colors duration-200">Sign Up</span>
-            </div>
+        {/* Right Side: Form Panel */}
+        <div className="flex-1 flex flex-col p-8 md:p-12 relative">
+          
+          {/* Top Right: Sign Up Link */}
+          <div className="absolute top-8 right-8 text-xs font-medium text-gray-500">
+            Don't have an account? <span className="text-gray-900 font-bold hover:underline cursor-pointer">Sign up</span>
           </div>
 
-          <div className="max-w-sm w-full mx-auto my-auto space-y-8">
-            <div className="text-center space-y-2">
-              <h2 className="text-2xl font-bold tracking-tight text-white">Welcome back to Hydro</h2>
-              <p className="text-sm text-brand-text-secondary">Please enter your details to sign in your account</p>
-            </div>
-
-            <div className="space-y-3">
+          <div className="flex-1 flex flex-col justify-center max-w-sm mx-auto w-full mt-10 md:mt-0">
+            
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Sign <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">in</span></h1>
+            
+            <p className="text-xs font-medium text-gray-500 mb-4">Sign in with Open account</p>
+            
+            {/* OAuth Buttons (Side-by-side) */}
+            <div className="flex gap-4 mb-8">
               <button
                 type="button"
                 onClick={() => handleOAuth('google')}
-                className="w-full flex items-center justify-center gap-3 bg-[#12141D]/50 border border-brand-border rounded-xl px-4 py-3 text-sm font-medium text-white cursor-pointer hover:bg-brand-border/50 hover:border-brand-border transition-all duration-200"
+                className="flex-1 flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-full py-2.5 px-4 text-xs font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
               >
-                <svg viewBox="0 0 24 24" className="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 24 24" className="w-4 h-4" xmlns="http://www.w3.org/2000/svg">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                   <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                   <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                   <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                 </svg>
-                Continue with Google
+                Google
               </button>
               
               <button
                 type="button"
                 onClick={() => handleOAuth('apple')}
-                className="w-full flex items-center justify-center gap-3 bg-[#12141D]/50 border border-brand-border rounded-xl px-4 py-3 text-sm font-medium text-white cursor-pointer hover:bg-brand-border/50 hover:border-brand-border transition-all duration-200"
+                className="flex-1 flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-full py-2.5 px-4 text-xs font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
               >
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 24 24" className="w-4 h-4 text-black" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path d="M16.365 14.316c-.023-2.628 2.15-3.896 2.25-3.953-1.223-1.786-3.125-2.03-3.818-2.062-1.62-.163-3.16.953-3.985.953-.825 0-2.09-.92-3.415-.895-1.715.025-3.3.99-4.186 2.528-1.8 3.12-.462 7.72 1.295 10.25 1.035 1.5 2.255 3.175 3.86 3.12 1.53-.05 2.115-.978 3.975-.978 1.84 0 2.395.977 3.995.95 1.638-.025 2.69-1.522 3.715-3.02 1.185-1.733 1.675-3.415 1.7-3.504-.038-.016-3.298-1.265-3.346-3.889zM15.175 5.51c.846-1.025 1.417-2.453 1.26-3.873-1.227.05-2.71.815-3.578 1.838-.7.884-1.385 2.338-1.196 3.725 1.365.106 2.668-.66 3.514-1.69z"/>
                 </svg>
-                Continue with Apple
+                Apple ID
               </button>
             </div>
 
-            <div className="flex items-center justify-center gap-4 text-xs font-medium text-brand-text-secondary before:flex-1 before:h-px before:bg-brand-border after:flex-1 after:h-px after:bg-brand-border">
-              Or sign in with
-            </div>
+            <p className="text-[11px] font-medium text-gray-500 mb-4">Or continue with email address</p>
 
-            <form action={formAction} className="space-y-6">
+            <form action={formAction} className="space-y-4">
               {state?.error && (
-                <div className="p-3 text-sm text-red-400 bg-red-950/30 border border-red-900/50 rounded-lg text-center font-medium animate-in fade-in slide-in-from-top-2">
+                <div className="p-3 text-xs text-red-600 bg-red-50 rounded-lg text-center font-medium">
                   {state.error}
                 </div>
               )}
 
-              <div className="space-y-4">
-                <div className="space-y-1.5 relative group">
-                  <label className="text-sm font-medium text-brand-text-secondary transition-colors group-focus-within:text-brand-purple-primary" htmlFor="email">
-                    Email
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="operator@hydro.web.id"
-                      className="w-full bg-[#090A0F]/50 border border-brand-border rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-brand-purple-primary/30 focus:border-brand-purple-primary hover:border-brand-border/80 transition-all duration-200 text-sm"
-                    />
-                  </div>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-blue-600 transition-colors">
+                  <Mail className="w-4 h-4" />
                 </div>
-
-                <div className="space-y-1.5 relative group">
-                  <div className="flex items-center justify-between">
-                    <label className="text-sm font-medium text-brand-text-secondary transition-colors group-focus-within:text-brand-purple-primary" htmlFor="password">
-                      Password
-                    </label>
-                  </div>
-                  <div className="relative">
-                    <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      required
-                      placeholder="minimum 8 characters"
-                      className="w-full bg-[#090A0F]/50 border border-brand-border rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-brand-purple-primary/30 focus:border-brand-purple-primary hover:border-brand-border/80 transition-all duration-200 text-sm"
-                    />
-                  </div>
-                </div>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="operator@hydro.web.id"
+                  className="w-full bg-[#F6F6F6] border-transparent focus:bg-white border focus:border-blue-600 rounded-full pl-11 pr-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-600/10 transition-all duration-200"
+                />
               </div>
 
-              <div className="space-y-4 mt-8">
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-blue-600 transition-colors">
+                  <Lock className="w-4 h-4" />
+                </div>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  placeholder="••••••••••••••••"
+                  className="w-full bg-[#F6F6F6] border-transparent focus:bg-white border focus:border-blue-600 rounded-full pl-11 pr-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-600/10 transition-all duration-200"
+                />
+              </div>
+
+              <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="group w-full flex items-center justify-center gap-2 bg-gradient-to-r from-brand-orange-start to-brand-purple-primary hover:from-brand-orange-end hover:to-brand-purple-dark text-white font-medium py-3 px-4 rounded-xl shadow-lg hover:shadow-xl hover:glow-orange hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300 disabled:opacity-70 disabled:pointer-events-none"
+                  className="w-full bg-[#1A73E8] hover:bg-[#1557B0] text-white font-semibold py-3 px-4 rounded-full shadow-md hover:shadow-lg active:scale-[0.98] transition-all duration-200 disabled:opacity-70 disabled:pointer-events-none text-sm"
                 >
-                  {isPending ? (
-                    "Authenticating..."
-                  ) : (
-                    <>
-                      Sign In 
-                      <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </>
-                  )}
+                  {isPending ? "Authenticating..." : "Sign In"}
                 </button>
-                <div className="text-center pt-2">
-                  <a href="#" className="text-sm font-medium text-brand-text-secondary hover:text-brand-purple-primary transition-colors underline underline-offset-4 decoration-brand-border hover:decoration-brand-purple-primary/50">Forgot password?</a>
-                </div>
               </div>
             </form>
           </div>
-
-          <div className="flex items-center justify-end gap-6 text-xs text-brand-text-secondary mt-auto">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Support</a>
-          </div>
         </div>
+      </div>
+      
+      {/* Bottom decorative nav similar to the reference image */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+        <div className="w-2 h-2 rounded-full bg-red-500"></div>
+        <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+        <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+        <div className="w-2 h-2 rounded-full bg-purple-500"></div>
       </div>
     </div>
   );

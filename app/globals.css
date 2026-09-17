@@ -20,8 +20,8 @@
   --color-brand-text-primary: #ffffff;
   --color-brand-text-secondary: #94a3b8;
 
-  --font-sans: var(--font-inter), var(--font-geist-sans), sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
+  --font-sans: var(--font-plus-jakarta-sans), sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 :root {
