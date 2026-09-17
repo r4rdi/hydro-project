@@ -140,7 +140,7 @@ export default function LoginPage() {
                 />
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 space-y-4">
                 <button
                   type="submit"
                   disabled={isPending}
@@ -148,6 +148,11 @@ export default function LoginPage() {
                 >
                   {isPending ? "Authenticating..." : "Sign In"}
                 </button>
+                <div className="text-center">
+                  <a href="#" className="text-xs font-medium text-gray-500 hover:text-blue-600 transition-colors cursor-pointer">
+                    Forgot password?
+                  </a>
+                </div>
               </div>
             </form>
           </div>
