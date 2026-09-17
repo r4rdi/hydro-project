@@ -1,21 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-green: #10b981;
-  --color-brand-blue: #3b82f6;
-  --color-brand-red: #ef4444;
-  --color-brand-amber: #f59e0b;
-  --color-brand-dark: #09090b;
-  --color-brand-card: #18181b;
-  --color-brand-muted: #27272a;
-  
+  /* Base & Background Colors */
+  --color-brand-bg: #090a0f;
+  --color-brand-surface: #12141d;
+  --color-brand-border: #2e3245;
+
+  /* Accent & Brand Colors */
+  --color-brand-purple-primary: #8b5cf6;
+  --color-brand-purple-dark: #6d28d9;
+  --color-brand-green-primary: #10b981;
+  --color-brand-green-dark: #059669;
+
+  /* Highlight & Silhouette Gradients (Orange) */
+  --color-brand-orange-start: #ff6b00;
+  --color-brand-orange-end: #ff8e53;
+
+  /* Typography */
+  --color-brand-text-primary: #ffffff;
+  --color-brand-text-secondary: #94a3b8;
+
   --font-sans: var(--font-inter), var(--font-geist-sans), sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
 
 :root {
-  --background: var(--color-brand-dark);
-  --foreground: #fafafa;
+  --background: var(--color-brand-bg);
+  --foreground: var(--color-brand-text-primary);
 }
 
 body {
@@ -27,9 +38,17 @@ body {
 }
 
 @utility glass-panel {
-  @apply bg-zinc-900/60 backdrop-blur-md border border-zinc-800/50 rounded-xl shadow-xl;
+  @apply bg-[#12141D]/80 backdrop-blur-xl border border-[#2E3245] shadow-2xl;
 }
 
 @utility glass-card {
-  @apply bg-zinc-800/40 backdrop-blur-sm border border-zinc-700/30 rounded-lg hover:bg-zinc-800/60 transition-all duration-300;
+  @apply bg-[#12141D]/60 backdrop-blur-md border border-[#2E3245]/50 rounded-xl hover:bg-[#12141D]/80 hover:border-[#8B5CF6]/30 transition-all duration-300;
+}
+
+@utility glow-purple {
+  @apply drop-shadow-[0_0_12px_rgba(139,92,246,0.3)];
+}
+
+@utility glow-orange {
+  @apply drop-shadow-[0_0_12px_rgba(255,107,0,0.4)];
 }
