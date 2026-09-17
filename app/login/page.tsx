@@ -71,9 +71,9 @@ export default function LoginPage() {
 
           <div className="flex-1 flex flex-col justify-center max-w-sm mx-auto w-full mt-10 md:mt-0">
             
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Sign <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">in</span></h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Sign <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">In</span></h1>
             
-            <p className="text-xs font-medium text-gray-500 mb-4">Sign in with Open account</p>
+            <p className="text-xs font-medium text-gray-500 mb-4">Sign In with Open account</p>
             
             {/* OAuth Buttons (Side-by-side) */}
             <div className="flex gap-4 mb-8">
