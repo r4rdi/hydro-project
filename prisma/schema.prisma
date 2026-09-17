@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id                 String        @id @default(uuid())
+  email              String        @unique
+  password           String
+  fullName           String        @map("full_name")
+  role               Role          @default(OPERATOR)
+  status             UserStatus    @default(PENDING)
+  createdAt          DateTime      @default(now()) @map("created_at")
+  updatedAt          DateTime      @updatedAt @map("updated_at")
+  actuatorLogs       ActuatorLog[]
+  acknowledgedAlerts Alert[]
+  devices            Device[]
+
+  @@map("users")
+}
+
+model Device {
+  id             String          @id @default(uuid())
+  deviceId       String          @unique @map("device_id")
+  name           String
+  description    String?
+  ownerId        String          @map("owner_id")
+  isActive       Boolean         @default(true) @map("is_active")
+  lastSeenAt     DateTime?       @map("last_seen_at")
+  createdAt      DateTime        @default(now()) @map("created_at")
+  updatedAt      DateTime        @updatedAt @map("updated_at")
+  actuatorLogs   ActuatorLog[]
+  alerts         Alert[]
+  owner          User            @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  sensorReadings SensorReading[]
+
+  @@map("devices")
+}
+
+model SensorReading {
+  id         BigInt   @id @default(autoincrement())
+  deviceId   String   @map("device_id")
+  ph         Decimal  @db.Decimal(4, 2)
+  ec         Decimal  @db.Decimal(4, 2)
+  tds        Decimal  @db.Decimal(6, 2)
+  waterTemp  Decimal  @map("water_temp") @db.Decimal(5, 2)
+  airTemp    Decimal  @map("air_temp") @db.Decimal(5, 2)
+  humidity   Decimal  @db.Decimal(5, 2)
+  waterLevel Decimal  @map("water_level") @db.Decimal(5, 2)
+  flowRate   Decimal  @map("flow_rate") @db.Decimal(4, 2)
+  rawPayload Json?    @map("raw_payload")
+  timestamp  DateTime @default(now())
+  device     Device   @relation(fields: [deviceId], references: [deviceId], onDelete: Cascade)
+
+  @@index([deviceId, timestamp(sort: Desc)])
+  @@index([timestamp])
+  @@map("sensor_readings")
+}
+
+model ActuatorLog {
+  id          BigInt   @id @default(autoincrement())
+  deviceId    String   @map("device_id")
+  actuator    String
+  state       Boolean
+  triggeredBy String   @map("triggered_by")
+  userId      String?  @map("user_id")
+  timestamp   DateTime @default(now())
+  device      Device   @relation(fields: [deviceId], references: [deviceId], onDelete: Cascade)
+  user        User?    @relation(fields: [userId], references: [id])
+
+  @@index([deviceId, timestamp(sort: Desc)])
+  @@map("actuator_logs")
+}
+
+model Alert {
+  id             String        @id @default(uuid())
+  deviceId       String        @map("device_id")
+  severity       AlertSeverity
+  title          String
+  message        String
+  isAcknowledged Boolean       @default(false) @map("is_acknowledged")
+  acknowledgedBy String?       @map("acknowledged_by")
+  createdAt      DateTime      @default(now()) @map("created_at")
+  acknowledger   User?         @relation(fields: [acknowledgedBy], references: [id])
+  device         Device        @relation(fields: [deviceId], references: [deviceId], onDelete: Cascade)
+
+  @@map("alerts")
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  OPERATOR
+  TEKNISI
+  VIEWER
+}
+
+enum UserStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum AlertSeverity {
+  INFO
+  WARNING
+  CRITICAL
+}
