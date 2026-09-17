@@ -159,12 +159,12 @@ export default function LoginPage() {
         </div>
       </div>
       
-      {/* Bottom decorative nav similar to the reference image */}
+      {/* Bottom decorative nav with wave animation */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-        <div className="w-2 h-2 rounded-full bg-red-500"></div>
-        <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-        <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-        <div className="w-2 h-2 rounded-full bg-purple-500"></div>
+        <div className="w-2 h-2 rounded-full bg-red-500 animate-bounce" style={{ animationDelay: '0ms' }}></div>
+        <div className="w-2 h-2 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: '150ms' }}></div>
+        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-bounce" style={{ animationDelay: '300ms' }}></div>
+        <div className="w-2 h-2 rounded-full bg-purple-500 animate-bounce" style={{ animationDelay: '450ms' }}></div>
       </div>
     </div>
   );
