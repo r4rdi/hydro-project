@@ -6,6 +6,7 @@ import { signup } from "../signup/actions";
 import { Lock, Mail, User, Server } from "lucide-react";
 import Image from "next/image";
 import { createClient } from "@/utils/supabase/client";
+import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 
 export default function AuthPage() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -343,12 +344,27 @@ export default function AuthPage() {
               </div>
               
               <div className="flex-1 flex flex-col justify-center w-full mt-12 px-4">
-                <div className="space-y-6 max-w-sm">
-                  <h2 className="text-3xl font-extrabold text-gray-900 leading-[1.15] tracking-tight">
-                    Performa Andal di Cloud, <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-rose-500">Siap Panen Maksimal!</span>
+                <div className="space-y-6 max-w-xl">
+                  <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-[1.3] tracking-tight min-h-[140px]">
+                    <span className="block">Optimize your</span>
+                    <AnimatedTextCycle 
+                      words={[
+                        "yield",
+                        "productivity",
+                        "projects",
+                        "business",
+                        "crop",
+                        "pH level",
+                        "nutrients",
+                        "greenhouse"
+                      ]}
+                      interval={2500}
+                      className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-rose-500 px-1 pb-1" 
+                    />
+                    <span className="block">with smart IoT precision.</span>
                   </h2>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    Solusi terintegrasi tanpa rasa khawatir. Di-hosting dan di-deploy pada arsitektur cloud berkecepatan tinggi dengan uptime terjamin, <strong className="text-gray-900">Hydro</strong> memastikan data pertanian presisi Anda selalu aktif dan dapat diakses kapan saja.
+                  <p className="text-slate-400 text-base md:text-lg leading-relaxed">
+                    Solusi cloud terintegrasi untuk pemantauan hidroponik yang stabil, cepat, dan selalu terhubung.
                   </p>
                 </div>
               </div>
@@ -386,12 +402,25 @@ export default function AuthPage() {
               </div>
               
               <div className="flex-1 flex flex-col justify-center w-full mt-12 px-4 text-right items-end">
-                <div className="space-y-6 max-w-sm">
-                  <h2 className="text-3xl font-extrabold text-gray-900 leading-[1.15] tracking-tight">
-                    Integrasi Aman & <span className="text-transparent bg-clip-text bg-gradient-to-l from-emerald-500 to-teal-600">Terpercaya.</span>
+                <div className="space-y-6 max-w-xl">
+                  <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-[1.3] tracking-tight min-h-[140px]">
+                    <span className="block">Start</span>
+                    <AnimatedTextCycle 
+                      words={[
+                        "monitoring",
+                        "optimizing",
+                        "tracking",
+                        "scaling",
+                        "securing",
+                        "growing"
+                      ]}
+                      interval={2500}
+                      className="text-transparent bg-clip-text bg-gradient-to-l from-emerald-500 to-teal-600 px-1 pb-1"
+                    />
+                    <span className="block">with complete peace of mind.</span>
                   </h2>
-                  <p className="text-gray-600 text-sm leading-relaxed text-right">
-                    Akses dashboard <strong className="text-gray-900">Hydro</strong> dibatasi hanya untuk pemilik perangkat yang sah. Setiap permintaan akun akan diverifikasi secara manual oleh administrator untuk memastikan keamanan data operasional Anda.
+                  <p className="text-slate-400 text-base md:text-lg leading-relaxed text-right">
+                    Akses eksklusif untuk pemilik perangkat terverifikasi demi menjamin keamanan data operasional Anda.
                   </p>
                 </div>
               </div>
