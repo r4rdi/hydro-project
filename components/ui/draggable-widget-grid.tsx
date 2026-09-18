@@ -669,7 +669,7 @@ export function DraggableWidgetGrid({
 			if (width < 1) return
 			const columns = Math.max(
 				minColumns,
-				Math.min(maxColumns, Math.round(width / cellSize)),
+				Math.min(maxColumns, Math.floor(width / cellSize)),
 			)
 			const unit = (width - gap * (columns - 1)) / columns
 			setMetrics((was) =>
