@@ -2,9 +2,9 @@
 
 @theme {
   /* Base & Background Colors */
-  --color-brand-bg: #090a0f;
-  --color-brand-surface: #12141d;
-  --color-brand-border: #2e3245;
+  --color-brand-bg: #F3F4F6;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-border: #E5E7EB;
 
   /* Accent & Brand Colors */
   --color-brand-purple-primary: #8b5cf6;
@@ -12,13 +12,18 @@
   --color-brand-green-primary: #10b981;
   --color-brand-green-dark: #059669;
 
-  /* Highlight & Silhouette Gradients (Orange) */
+  /* Highlight & Silhouette Gradients (Orange/Red) */
   --color-brand-orange-start: #ff6b00;
-  --color-brand-orange-end: #ff8e53;
+  --color-brand-orange-end: #ff3333;
 
   /* Typography */
-  --color-brand-text-primary: #ffffff;
-  --color-brand-text-secondary: #94a3b8;
+  --color-brand-text-primary: #111827;
+  --color-brand-text-secondary: #6B7280;
+
+  /* Shadcn compat tokens */
+  --color-card: var(--color-brand-surface);
+  --color-card-foreground: var(--color-brand-text-primary);
+  --color-ring: #d1d5db;
 
   --font-sans: var(--font-plus-jakarta-sans), sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -38,11 +43,11 @@ body {
 }
 
 @utility glass-panel {
-  @apply bg-[#12141D]/80 backdrop-blur-xl border border-[#2E3245] shadow-2xl;
+  @apply bg-white border border-gray-100 shadow-sm rounded-[1.5rem];
 }
 
 @utility glass-card {
-  @apply bg-[#12141D]/60 backdrop-blur-md border border-[#2E3245]/50 rounded-xl hover:bg-[#12141D]/80 hover:border-[#8B5CF6]/30 transition-all duration-300;
+  @apply bg-white border border-gray-100 shadow-sm rounded-2xl hover:shadow-md hover:border-gray-200 transition-all duration-300;
 }
 
 @utility glow-purple {
@@ -52,3 +57,4 @@ body {
 @utility glow-orange {
   @apply drop-shadow-[0_0_12px_rgba(255,107,0,0.4)];
 }
+.recharts-wrapper, .recharts-surface { outline: none !important; }

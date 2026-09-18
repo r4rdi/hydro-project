@@ -31,17 +31,17 @@ export function ActuatorControl({ name, initialState, mode, icon: Icon, onToggle
   };
 
   return (
-    <div className="glass-panel p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all hover:shadow-md">
       <div className="flex items-center gap-4">
-        <div className={cn("p-2.5 rounded-xl border transition-all duration-300", 
-          isOn ? "bg-brand-green/10 border-brand-green/20 text-brand-green" : "bg-zinc-800 border-zinc-700 text-zinc-500"
+        <div className={cn("p-3 rounded-xl border transition-all duration-300 shadow-sm", 
+          isOn ? "bg-gradient-to-br from-brand-green-primary to-brand-green-dark border-transparent text-white" : "bg-gray-50 border-gray-200 text-gray-400"
         )}>
           <Icon className="w-5 h-5" />
         </div>
         <div>
-          <h4 className="font-medium text-zinc-200">{name}</h4>
-          <p className="text-xs text-zinc-500 mt-0.5">
-            Status: <span className={isOn ? "text-brand-green font-medium" : "text-zinc-400"}>{isOn ? "Active" : "Inactive"}</span>
+          <h4 className="font-bold text-gray-800">{name}</h4>
+          <p className="text-xs text-gray-500 mt-1 font-medium">
+            Status: <span className={isOn ? "text-brand-green-dark" : "text-gray-400"}>{isOn ? "Active" : "Inactive"}</span>
           </p>
         </div>
       </div>
@@ -49,10 +49,10 @@ export function ActuatorControl({ name, initialState, mode, icon: Icon, onToggle
       <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
         <button
           onClick={toggleMode}
-          className={cn("px-3 py-1.5 rounded-lg text-xs font-medium transition-colors border",
+          className={cn("px-4 py-2 rounded-full text-xs font-bold transition-all border shadow-sm",
             currentMode === "auto" 
-              ? "bg-brand-blue/10 text-brand-blue border-brand-blue/20" 
-              : "bg-zinc-800 text-zinc-400 border-zinc-700 hover:bg-zinc-700"
+              ? "bg-blue-50 text-blue-600 border-blue-200" 
+              : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50"
           )}
         >
           {currentMode === "auto" ? "AUTO" : "MANUAL"}
@@ -62,14 +62,14 @@ export function ActuatorControl({ name, initialState, mode, icon: Icon, onToggle
           onClick={handleToggle}
           disabled={currentMode === "auto"}
           className={cn(
-            "p-2 rounded-lg border transition-all flex items-center justify-center",
-            currentMode === "auto" ? "opacity-50 cursor-not-allowed" : "cursor-pointer active:scale-95",
+            "p-2 rounded-full border transition-all flex items-center justify-center shadow-sm",
+            currentMode === "auto" ? "opacity-40 cursor-not-allowed" : "cursor-pointer active:scale-95",
             isOn && currentMode === "manual" 
-              ? "bg-brand-green text-zinc-950 border-transparent shadow-[0_0_15px_rgba(16,185,129,0.3)]" 
-              : "bg-zinc-800 text-zinc-400 border-zinc-700 hover:bg-zinc-700"
+              ? "bg-gradient-to-tr from-brand-orange-start to-brand-orange-end text-white border-transparent shadow-[0_4px_12px_rgba(255,107,0,0.3)]" 
+              : "bg-white text-gray-400 border-gray-200 hover:bg-gray-50 hover:text-brand-orange-start"
           )}
         >
-          <Power className="w-4 h-4" />
+          <Power className="w-5 h-5" />
         </button>
       </div>
     </div>
